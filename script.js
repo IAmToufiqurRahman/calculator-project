@@ -1,6 +1,10 @@
 import Calculator from './Calculator.js'
 
-const calculator = new Calculator()
+const primaryOperandDisplay = document.querySelector('[data-primary-operand]')
+const secondaryOperandDisplay = document.querySelector('[data-secondary-operand]')
+const operationDisplay = document.querySelector('[data-operation]')
+
+const calculator = new Calculator(primaryOperandDisplay, secondaryOperandDisplay, operationDisplay)
 
 document.addEventListener('click', (e) => {
   if (e.target.matches('[data-all-clear]')) {
@@ -11,7 +15,7 @@ document.addEventListener('click', (e) => {
     calculator.addDigit(e.target.textContent)
   }
 
-  if (e.target.matches('[data-all-delete]')) {
+  if (e.target.matches('[data-delete]')) {
     calculator.removeDigit()
   }
 
